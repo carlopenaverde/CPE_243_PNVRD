@@ -1,0 +1,15 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+  - name: Collect the log files
+    archive:
+      path: /var/log/
+      dest: /tmp/logs.tar.gz
+
+  - name: Return the log files to the Manage Node
+    copy:
+      src: /tmp/logs.tar.gz
+      dest: /tmp/
+    delegate_to: localhost

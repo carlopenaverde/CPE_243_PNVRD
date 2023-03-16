@@ -1,0 +1,11 @@
+---
+- name: Create a Playbook
+  hosts: all
+  become: true
+  tasks:
+
+  - name: Ping my hosts
+    ansible.builtin.ping:
+  - name: Print message
+    ansible.builtin.debug:
+       msg: Collect log files
